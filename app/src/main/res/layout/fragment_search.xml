@@ -6,64 +6,68 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <View
+        android:id="@+id/viewTop"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_150"
+        android:background="@drawable/bg_red_radius_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@android:color/white" />
+
     <TextView
+        android:id="@+id/textSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_16"
-        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_30"
         android:fontFamily="@font/chewy"
+        android:gravity="center"
         android:text="@string/title_search"
-        android:textColor="@color/red_berry"
+        android:textColor="@android:color/white"
         android:textSize="@dimen/sp_30"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editSearch"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dp_36"
-        android:layout_marginStart="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_60"
-        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_20"
         android:autofillHints="@null"
-        android:background="@drawable/custom_edit_text"
-        android:drawableStart="@drawable/ic_search_gray"
+        android:background="@drawable/bg_white_radius_20"
         android:hint="@string/title_search_meals"
+        android:imeOptions="actionSearch"
         android:inputType="text"
         android:padding="@dimen/dp_8"
         android:textSize="@dimen/sp_14"
-        app:layout_constraintEnd_toStartOf="@+id/textCancel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_64"
-        android:layout_marginEnd="@dimen/dp_16"
-        android:text="@string/title_cancel"
-        android:textSize="@dimen/sp_16"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSearch" />
 
     <ImageButton
-        android:id="@+id/imageDelete"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/dp_60"
-        android:layout_marginEnd="@dimen/dp_10"
-        android:background="@null"
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_green_radius_20"
         android:contentDescription="@null"
-        android:scaleType="center"
-        android:src="@drawable/ic_cancel"
-        android:visibility="invisible"
-        app:layout_constraintDimensionRatio="1:1"
+        android:src="@drawable/ic_search_white"
         app:layout_constraintEnd_toEndOf="@+id/editSearch"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/textSearch" />
 
     <TextView
         android:id="@+id/textSuggest"
@@ -77,7 +81,7 @@
         android:textSize="@dimen/sp_16"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTop" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSearch"
@@ -100,9 +104,9 @@
         android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:src="@drawable/ic_no_search"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/viewTop" />
 </androidx.constraintlayout.widget.ConstraintLayout>

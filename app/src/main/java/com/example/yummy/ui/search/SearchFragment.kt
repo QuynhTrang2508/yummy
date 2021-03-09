@@ -1,6 +1,8 @@
 package com.example.yummy.ui.search
 
+import android.content.Context
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.doOnTextChanged
 import com.example.yummy.R
 import com.example.yummy.base.BaseFragment
@@ -39,13 +41,11 @@ class SearchFragment : BaseFragment(), SearchContract.View {
 
     override fun initActions() {
         changeEditText()
-        textCancel.setOnClickListener {
-            parentFragmentManager.removeFragment(R.id.frameMain, this)
+        imageButtonSearch.setOnClickListener {
+            searchMeals()
         }
-        imageDelete.setOnClickListener {
-            editSearch.text = null
-            imageDelete.visibility = View.INVISIBLE
-            textSuggest.text = getString(R.string.title_suggest)
+        toolBarSearch.setOnClickListener {
+            parentFragmentManager.removeFragment(R.id.frameMain, this)
         }
     }
 
@@ -86,14 +86,23 @@ class SearchFragment : BaseFragment(), SearchContract.View {
             text?.let {
                 if (it.isEmpty()) {
                     textSuggest.text = getString(R.string.title_suggest)
-                    imageDelete.visibility = View.INVISIBLE
-                } else {
-                    imageDelete.visibility = View.VISIBLE
-                    textSuggest.text = getString(R.string.title_result)
+                    searchPresenter?.getMealsByWordSearch(it.toString())
                 }
-                searchPresenter?.getMealsByWordSearch(it.toString())
             }
         }
+    }
+
+    private fun searchMeals() {
+        searchPresenter?.getMealsByWordSearch(editSearch.text.toString())
+        textSuggest.text = getString(R.string.title_result)
+        hideKeyBroad()
+    }
+
+    private fun hideKeyBroad() {
+        val view = activity?.currentFocus
+        val inputMethodManager =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     private fun clickItemMeal(meal: Meal) {
