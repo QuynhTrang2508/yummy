@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
+        android:name=".ui.app.App"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@drawable/yummy_logo"
@@ -25,6 +26,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity" />
+
+        <receiver android:name=".broadcast.MyBroadcast" />
+        <service
+            android:name=".service.AlarmManagerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -44,3 +44,8 @@ object MealDetailConst{
     const val MEAL_DETAIL_CATEGORY = "strCategory"
     const val MEAL_DETAIL_INGREDIENT = "strIngredient"
 }
+
+object AlarmConst{
+    const val EXTRA_COOK_ID = "EXTRA_MATCH_ID"
+    const val EXTRA_OPEN_NOTIFICATION = "EXTRA_OPEN_NOTIFICATION"
+}

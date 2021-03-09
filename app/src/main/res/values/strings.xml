@@ -27,6 +27,7 @@
     <string name="title_cancel">Cancel</string>
     <string name="title_suggest">Suggest</string>
     <string name="title_result">Result</string>
+    <string name="title_cook_time_question">Are you sure choose the time to send notification</string>
 
     <string name="text_description">Description</string>
     <string name="text_category_name">Name</string>
@@ -57,4 +58,5 @@
     <string name="msg_insert_success_meal_favorite">Insert %s Success</string>
     <string name="msg_delete_success_meal_favorite">Delete %s Success</string>
     <string name="msg_check_internet">Please check your internet connection!</string>
+    <string name="text_congratulations">Congratulations</string>
 </resources>

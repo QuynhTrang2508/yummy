@@ -15,6 +15,7 @@ import com.example.yummy.utlis.LanguageConst.LANGUAGE_KEY_ENGLISH
 import com.example.yummy.utlis.LanguageConst.LANGUAGE_KEY_VIETNAMESE
 import com.example.yummy.utlis.RepositoryUtils
 import com.example.yummy.ui.timepicker.DateTimeFragment
+import com.example.yummy.utlis.AlarmConst.EXTRA_OPEN_NOTIFICATION
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -92,5 +93,11 @@ class MainActivity : BaseActivity(), LanguageContract.View {
 
     companion object {
         fun getIntent(context: Context) = Intent(context, MainActivity::class.java)
+
+        fun getIntentFromNotification(context: Context) =
+            Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtra(EXTRA_OPEN_NOTIFICATION, true)
+            }
     }
 }

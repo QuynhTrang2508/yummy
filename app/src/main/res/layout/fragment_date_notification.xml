@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,6 +13,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttonBackDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@+id/viewTimeHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewTimeHeader" />
 
     <TextView
         android:id="@+id/textTitleBar"
@@ -26,30 +38,18 @@
         app:layout_constraintStart_toEndOf="@+id/buttonBackDateTime"
         app:layout_constraintTop_toTopOf="@+id/buttonBackDateTime" />
 
-    <ImageView
-        android:id="@+id/buttonBackDateTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="@+id/viewTimeHeader"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewTimeHeader" />
-
     <TextView
         android:id="@+id/textChooseTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginStart="8dp"
         android:drawablePadding="@dimen/dp_8"
         android:fontFamily="@font/roboto_medium"
-        android:gravity="center_vertical"
         android:padding="@dimen/dp_8"
         android:text="@string/text_choose_time_to_cook"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/teal_700"
-        android:textSize="@dimen/sp_16"
+        android:textSize="@dimen/sp_20"
         android:textStyle="italic"
         app:drawableRightCompat="@drawable/ic_search_time"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,19 +60,85 @@
         layout="@layout/date_picker"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginTop="8dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textChooseTime" />
+        app:layout_constraintTop_toBottomOf="@+id/textDate" />
 
     <include
         android:id="@+id/includeTime"
         layout="@layout/time_picker"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:gravity="end"
+        android:padding="@dimen/dp_8"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/textStripeLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textChooseTime" />
+
+    <TextView
+        android:id="@+id/textStripeLine"
+        android:layout_width="@dimen/dp_2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/textDate"
+        app:layout_constraintEnd_toStartOf="@+id/textTime"
+        app:layout_constraintStart_toEndOf="@+id/textDate"
+        app:layout_constraintTop_toBottomOf="@+id/textChooseTime" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:padding="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textStripeLine"
+        app:layout_constraintTop_toBottomOf="@+id/textChooseTime" />
+
+    <ImageView
+        android:id="@+id/imageClock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTimeHeader"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_percent="0.4"
+        app:srcCompat="@drawable/ic_alarm_clock" />
+
+    <TextView
+        android:id="@+id/textCongratulations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/text_congratulations"
+        android:textColor="@color/teal_700"
+        android:textSize="@dimen/sp_30"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imageClock"
+        app:layout_constraintStart_toStartOf="@+id/imageClock"
+        app:layout_constraintTop_toBottomOf="@+id/imageClock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

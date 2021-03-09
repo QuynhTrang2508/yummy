@@ -17,10 +17,10 @@
         android:padding="@dimen/dp_8"
         android:textColor="@color/river_bed"
         android:textStyle="bold"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintWidth_percent="0.3" />
 
     <ImageView
         android:id="@+id/imageMeal"

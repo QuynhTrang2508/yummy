@@ -24,7 +24,9 @@ class IngredientsViewHolder(itemView: View, onItemClicked: (Ingredient) -> Unit)
         itemIngredient = ingredient
         itemView.apply {
             textIngredient.text = ingredient.name
-            textContent.text = ingredient.description ?: resources.getString(R.string.text_update)
+            textContent.text =
+                if (ingredient.description != "null") ingredient.description
+                else resources.getString(R.string.text_update)
         }
     }
 }
