@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,8 +82,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
-            android:contentDescription="@null"
             android:background="@android:color/transparent"
+            android:contentDescription="@null"
             app:layout_constraintBottom_toBottomOf="@+id/viewHeader"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/viewHeader"
@@ -104,11 +103,11 @@
             app:layout_constraintTop_toTopOf="@+id/buttonBack" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layoutAnimation="@anim/anim_layout"
             android:id="@+id/recyclerMeals"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_16"
+            android:layoutAnimation="@anim/anim_layout"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

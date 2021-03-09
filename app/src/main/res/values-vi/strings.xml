@@ -40,6 +40,9 @@
     <string name="text_area">Quốc gia</string>
     <string name="text_category">Phân loại</string>
     <string name="text_ingredient">Thành phần</string>
+    <string name="text_choose_time_to_cook">Choose Time to cook</string>
+    <string name="text_cancel">Hủy</string>
+    <string name="text_ok">Đồng Ý</string>
 
     <string name="action_yes">Có</string>
     <string name="action_no">Không</string>
@@ -54,4 +57,5 @@
     <string name="msg_insert_success_meal_favorite">Thêm %s thành công</string>
     <string name="msg_delete_success_meal_favorite">Xóa %s thành công</string>
     <string name="msg_check_internet">Vui lòng kiểm tra kết nối Internet của bạn!</string>
+
 </resources>

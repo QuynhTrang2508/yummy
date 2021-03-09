@@ -53,7 +53,8 @@ class AppDatabase private constructor(
             FAVORITE_TIME_LONG
         )
 
-        private val DROP_FAVORITE_TABLE = String.format("DROP TABLE IF EXISTS %s", FAVORITE_TABLE_NAME)
+        private val DROP_FAVORITE_TABLE =
+            String.format("DROP TABLE IF EXISTS %s", FAVORITE_TABLE_NAME)
 
         private val lock = Any()
         private var instance: AppDatabase? = null

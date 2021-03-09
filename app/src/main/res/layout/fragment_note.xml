@@ -48,6 +48,7 @@
         android:backgroundTint="@color/red_berry"
         android:contentDescription="@null"
         android:src="@drawable/ic_add"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

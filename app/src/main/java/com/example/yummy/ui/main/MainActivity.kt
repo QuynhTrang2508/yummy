@@ -14,6 +14,7 @@ import com.example.yummy.ui.search.AreaFragment
 import com.example.yummy.utlis.LanguageConst.LANGUAGE_KEY_ENGLISH
 import com.example.yummy.utlis.LanguageConst.LANGUAGE_KEY_VIETNAMESE
 import com.example.yummy.utlis.RepositoryUtils
+import com.example.yummy.ui.timepicker.DateTimeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity(), LanguageContract.View {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_alarm -> {
-
+                openFragment(DateTimeFragment())
             }
             R.id.item_vietnamese -> {
                 languagePresenter?.setLanguage(LANGUAGE_KEY_VIETNAMESE)
@@ -87,6 +88,7 @@ class MainActivity : BaseActivity(), LanguageContract.View {
             }
             true
         }
+
 
     companion object {
         fun getIntent(context: Context) = Intent(context, MainActivity::class.java)
