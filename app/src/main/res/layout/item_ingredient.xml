@@ -9,13 +9,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp_4">
 
         <TextView
             android:id="@+id/textIngredient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_8"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/text_ingredient_name"
             android:textColor="@android:color/black"
@@ -27,10 +28,13 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/dp_8"
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_8"
+            app:cardElevation="@dimen/dp_2"
+            app:cardCornerRadius="@dimen/dp_2"
+            app:cardUseCompatPadding="true"
             android:layout_marginBottom="@dimen/dp_8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +48,9 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_4"
                     android:text="@string/text_description"
+                    android:textStyle="italic"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_14"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +61,7 @@
                     android:id="@+id/textContent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp_8"
+                    android:layout_margin="@dimen/dp_4"
                     android:ellipsize="end"
                     android:maxLines="5"
                     android:textSize="@dimen/sp_12"

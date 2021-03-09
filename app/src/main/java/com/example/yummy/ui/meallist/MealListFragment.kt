@@ -83,7 +83,10 @@ class MealListFragment : BaseFragment(), MealListContract.View {
                 }
                 meal as? Ingredient != null -> {
                     textDescription.text = meal.name
-                    textDescriptionDetail.text = meal.description
+                    textDescriptionDetail.text =
+                        if (!meal.description.equals("null")) meal.description else resources.getString(
+                            R.string.text_update
+                        )
                     presenter?.getMealsByIngredient(meal)
                 }
                 meal as? Area != null -> {

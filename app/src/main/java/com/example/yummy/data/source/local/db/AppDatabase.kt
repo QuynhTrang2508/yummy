@@ -3,6 +3,10 @@ package com.example.yummy.data.source.local.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.yummy.data.model.CookNotification.Companion.COOK_DATE
+import com.example.yummy.data.model.CookNotification.Companion.COOK_ID
+import com.example.yummy.data.model.CookNotification.Companion.COOK_TABLE
+import com.example.yummy.data.model.CookNotification.Companion.COOK_TIME
 import com.example.yummy.data.model.Meal.Companion.FAVORITE_KEY_ID
 import com.example.yummy.data.model.Meal.Companion.FAVORITE_KEY_IMAGE
 import com.example.yummy.data.model.Meal.Companion.FAVORITE_KEY_NAME
@@ -20,6 +24,7 @@ class AppDatabase private constructor(
         database?.apply {
             execSQL(CREATE_NOTE_TABLE)
             execSQL(CREATE_FAVORITE_TABLE)
+            execSQL(CREATE_COOK_TABLE)
         }
     }
 
@@ -27,6 +32,7 @@ class AppDatabase private constructor(
         database?.apply {
             execSQL(DROP_NOTE_TABLE)
             execSQL(DROP_FAVORITE_TABLE)
+            execSQL(DROP_COOK_TABLE)
         }
         onCreate(database)
     }
@@ -53,7 +59,19 @@ class AppDatabase private constructor(
             FAVORITE_TIME_LONG
         )
 
-        private val DROP_FAVORITE_TABLE = String.format("DROP TABLE IF EXISTS %s", FAVORITE_TABLE_NAME)
+        private val DROP_FAVORITE_TABLE =
+            String.format("DROP TABLE IF EXISTS %s", FAVORITE_TABLE_NAME)
+
+        private val CREATE_COOK_TABLE = String.format(
+            "CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT)",
+            COOK_TABLE,
+            COOK_ID,
+            COOK_DATE,
+            COOK_TIME
+        )
+
+        private val DROP_COOK_TABLE =
+            String.format("DROP TABLE IF EXISTS %s", COOK_TABLE)
 
         private val lock = Any()
         private var instance: AppDatabase? = null

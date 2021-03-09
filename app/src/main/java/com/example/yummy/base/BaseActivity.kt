@@ -5,6 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.yummy.R
+import com.example.yummy.ui.timepicker.DateTimeFragment
 import com.example.yummy.utlis.clearBackStack
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -26,8 +27,10 @@ abstract class BaseActivity : AppCompatActivity() {
                 R.anim.fade_in,
                 R.anim.slide_out
             )
-            .replace(R.id.frameMain, fragment)
-            .commit()
+            .replace(R.id.frameMain, fragment).apply {
+                if (fragment is DateTimeFragment)
+                    addToBackStack(null)
+            }.commit()
 
     protected abstract fun initComponents()
 }
